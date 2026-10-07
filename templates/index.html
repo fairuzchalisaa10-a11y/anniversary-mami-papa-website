@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary Mami & Papa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- STAGE 1: ROSE INTRO -->
+        <section id="stage-1" class="stage stage-1 active">
+            <div class="stage-1-container">
+                <canvas id="rose-canvas-intro" class="rose-canvas-intro"></canvas>
+                
+                <div class="intro-content">
+                    <h1 class="intro-title fade-in-1">To Mami & Papa</h1>
+                    <p class="intro-subtitle fade-in-2">A little letter filled with love 🌹</p>
+                    <p class="intro-text fade-in-3">For the two people who taught me what love looks like.</p>
+                    <button class="btn btn-primary fade-in-4" onclick="nextStage()">
+                        <span>Open the Letter</span>
+                        <span class="heart">♡</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 2: TEDDY BEAR -->
+        <section id="stage-2" class="stage stage-2" style="display: none;">
+            <div class="stage-2-container">
+                <canvas id="petals-canvas-2" class="petals-canvas"></canvas>
+                
+                <div class="teddy-container">
+                    <svg class="teddy-bear" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Body -->
+                        <ellipse cx="100" cy="130" rx="50" ry="65" fill="#C4976A" class="teddy-body"/>
+                        <!-- Head -->
+                        <circle cx="100" cy="70" r="45" fill="#C4976A" class="teddy-head"/>
+                        <!-- Left Arm -->
+                        <ellipse cx="60" cy="110" rx="18" ry="40" fill="#C4976A" class="teddy-arm-left"/>
+                        <!-- Right Arm -->
+                        <ellipse cx="140" cy="110" rx="18" ry="40" fill="#C4976A" class="teddy-arm-right"/>
+                        <!-- Left Leg -->
+                        <ellipse cx="80" cy="190" rx="20" ry="30" fill="#C4976A" class="teddy-leg-left"/>
+                        <!-- Right Leg -->
+                        <ellipse cx="120" cy="190" rx="20" ry="30" fill="#C4976A" class="teddy-leg-right"/>
+                        <!-- Ears -->
+                        <circle cx="75" cy="35" r="15" fill="#C4976A" class="teddy-ear-left"/>
+                        <circle cx="125" cy="35" r="15" fill="#C4976A" class="teddy-ear-right"/>
+                        <!-- Eyes -->
+                        <circle cx="90" cy="60" r="6" fill="#2C2C2C"/>
+                        <circle cx="110" cy="60" r="6" fill="#2C2C2C"/>
+                        <!-- Nose -->
+                        <circle cx="100" cy="75" r="5" fill="#2C2C2C"/>
+                        <!-- Belly -->
+                        <ellipse cx="100" cy="135" rx="25" ry="35" fill="#E8D5C4" class="teddy-belly"/>
+                        <!-- Rose in hand (right) -->
+                        <g class="rose-in-hand" transform="translate(140, 100)">
+                            <path d="M 0 0 Q 5 -20 0 -40" stroke="#2D5016" stroke-width="2" fill="none"/>
+                            <ellipse cx="0" cy="-40" rx="12" ry="15" fill="#9E2638"/>
+                            <path d="M -8 -35 Q -5 -45 0 -48" fill="#9E2638"/>
+                            <path d="M 8 -35 Q 5 -45 0 -48" fill="#9E2638"/>
+                            <path d="M -5 -40 Q 0 -50 5 -40" fill="#B81E3A"/>
+                            <ellipse cx="0" cy="-28" rx="8" ry="6" fill="#2D5016" opacity="0.8"/>
+                        </g>
+                    </svg>
+                    <div class="decorative-frame"></div>
+                </div>
+                
+                <p class="teddy-text">Made with love, especially for you.</p>
+                <button class="btn btn-primary" onclick="nextStage()">
+                    <span>Read My Letter</span>
+                    <span class="heart">♡</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- STAGE 3: LETTER -->
+        <section id="stage-3" class="stage stage-3" style="display: none;">
+            <div class="stage-3-container">
+                <canvas id="petals-canvas-3" class="petals-canvas"></canvas>
+                
+                <div class="letter-card">
+                    <div class="letter-decoration letter-decoration-top-left">
+                        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5 Q30 15 25 25 Q20 15 25 5" fill="#9E2638"/>
+                            <circle cx="25" cy="28" r="3" fill="#2D5016"/>
+                        </svg>
+                    </div>
+                    <div class="letter-decoration letter-decoration-top-right">
+                        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5 Q30 15 25 25 Q20 15 25 5" fill="#9E2638"/>
+                            <circle cx="25" cy="28" r="3" fill="#2D5016"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="letter-content">
+                        <h2 class="letter-heading">Happy Anniversary, Mami & Papa! ✨</h2>
+                        
+                        <p class="letter-paragraph">
+                            Truly, no words can describe betapa bersyukurnya aku punya Mami n Papa. Thank you for always showing us what true love, patience, and dedication look like every single day.
+                        </p>
+                        
+                        <p class="letter-paragraph">
+                            May Allah SWT always bless your marriage with endless happiness, health, and peace of mind. Semoga Mami dan Papa senantiasa diberi umur yang panjang, rezeki yang berkah, dan selalu saling melengkapi sampai tua nanti. May ur love for each other grow stronger every day!
+                        </p>
+                        
+                        <p class="letter-paragraph">
+                            love u both so much! ❤️
+                        </p>
+                        
+                        <p class="letter-signature">-Neng icha</p>
+                    </div>
+                    
+                    <div class="letter-decoration letter-decoration-bottom-left">
+                        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5 Q30 15 25 25 Q20 15 25 5" fill="#9E2638"/>
+                            <circle cx="25" cy="28" r="3" fill="#2D5016"/>
+                        </svg>
+                    </div>
+                    <div class="letter-decoration letter-decoration-bottom-right">
+                        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 5 Q30 15 25 25 Q20 15 25 5" fill="#9E2638"/>
+                            <circle cx="25" cy="28" r="3" fill="#2D5016"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="nextStage()">
+                    <span>Continue</span>
+                    <span class="heart">♡</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- STAGE 4: ROSE GARDEN -->
+        <section id="stage-4" class="stage stage-4" style="display: none;">
+            <div class="stage-4-container">
+                <canvas id="rose-canvas-garden" class="rose-canvas-garden"></canvas>
+                <canvas id="petals-canvas-4" class="petals-canvas-4"></canvas>
+                
+                <div class="garden-closing-content" id="garden-closing-content">
+                    <p class="closing-text closing-text-1">With all my love,<br>for Mami & Papa. ❤️</p>
+                    <p class="closing-text closing-text-2">Happy Anniversary</p>
+                    <p class="closing-text closing-text-3">May your love story always continue, together. 🌹</p>
+                    <button class="btn btn-primary" onclick="closeGarden()">
+                        <span>Close the Garden</span>
+                        <span class="heart">♡</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CLOSING -->
+        <section id="stage-final" class="stage stage-final" style="display: none;">
+            <div class="final-container">
+                <p class="final-message">Thank you for being my home. ❤️</p>
+                <p class="final-signature">- Neng Icha</p>
+                <div class="final-rose">
+                    <svg viewBox="0 0 50 80" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25 50 L25 80" stroke="#2D5016" stroke-width="2" fill="none"/>
+                        <ellipse cx="25" cy="35" rx="15" ry="18" fill="#9E2638"/>
+                        <path d="M15 30 Q10 25 15 20" fill="#9E2638"/>
+                        <path d="M35 30 Q40 25 35 20" fill="#9E2638"/>
+                        <path d="M20 35 Q15 30 20 25" fill="#B81E3A"/>
+                        <path d="M30 35 Q35 30 30 25" fill="#B81E3A"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
